@@ -1,5 +1,13 @@
 # Sistema de Gerenciamento de Posto de Combustível
 
+## Sobre o Projeto
+
+Este projeto é um **fork** do repositório original: [merito-es/vaga-junior](https://github.com/merito-es/vaga-junior)
+
+O fork foi utilizado para desenvolver a solução do desafio proposto, permitindo manter o histórico completo de commits e evolução do código.
+
+---
+
 Sistema web para gerenciar combustíveis, bombas e abastecimentos com base no desafio solicitado.
 
 ## Tecnologias
