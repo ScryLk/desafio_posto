@@ -27,6 +27,7 @@ input, select {
     margin: 5px 0 15px 0;
     border: 1px solid #ddd;
     border-radius: 6px;
+    box-sizing: border-box;
 }
 
 .btn {

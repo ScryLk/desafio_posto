@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Abastecimento</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Registrar Abastecimento</h1>
+
+        <form id="formAbastecimento">
+            <label>Bomba:</label>
+            <select id="bombaId" required>
+                <option value="">Selecione...</option>
+            </select>
+
+            <label>Litros:</label>
+            <input type="number" id="litros" step="0.01" required>
+
+            <label>Valor Total:</label>
+            <input type="number" id="valorTotal" step="0.01" readonly required>
+
+            <button type="submit" class="btn">Registrar</button>
+        </form>
+
+        <br>
+        <a href="index.html" class="btn">Voltar</a>
+    </div>
+
+    <script src="/js/registrar-abastecimento.js"></script>
+</body>
+</html>
