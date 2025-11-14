@@ -49,20 +49,28 @@ async function registrar(event) {
     const valorTotal = parseFloat(document.getElementById('valorTotal').value);
     const precoLitroPraticado = valorTotal / litros;
 
+    const agora = new Date();
+    const dataFormatada = agora.toISOString().slice(0, 19);
+
     const dados = {
         bombaId: parseInt(document.getElementById('bombaId').value),
         litros: litros,
         valorTotal: valorTotal,
         precoLitroPraticado: precoLitroPraticado,
-        dataAbastecimento: new Date().toISOString()
+        dataAbastecimento: dataFormatada
     };
 
-    await fetch(API_URL, {
+    const response = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dados)
     });
 
-    alert('Abastecimento registrado!');
-    document.getElementById('formAbastecimento').reset();
+    if (response.ok) {
+        alert('Abastecimento registrado!');
+        document.getElementById('formAbastecimento').reset();
+    } else {
+        const erro = await response.text();
+        alert('Erro ao registrar: ' + erro);
+    }
 }
