@@ -14,6 +14,9 @@ public class DatabaseConnection {
 
     private DatabaseConnection() {
         try {
+            // Carrega o driver JDBC do MySQL
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
             Properties props = new Properties();
             InputStream in = getClass()
                     .getClassLoader()

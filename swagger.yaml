@@ -1,0 +1,330 @@
+openapi: 3.0.3
+info:
+  title: API - Desafio Posto
+  description: API REST para gerenciamento de combustíveis, bombas e abastecimentos.
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8080/api
+    description: Servidor local
+
+paths:
+  /combustiveis:
+    get:
+      summary: Lista todos os combustíveis cadastrados
+      tags: [Combustíveis]
+      responses:
+        '200':
+          description: Lista retornada com sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TipoCombustivel'
+    post:
+      summary: Cria um novo tipo de combustível
+      tags: [Combustíveis]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TipoCombustivelCreate'
+      responses:
+        '201':
+          description: Criado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TipoCombustivel'
+        '400':
+          description: Erro de validação
+
+  /combustiveis/{id}:
+    get:
+      summary: Busca combustível por ID
+      tags: [Combustíveis]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TipoCombustivel'
+        '404':
+          description: Não encontrado
+    put:
+      summary: Atualiza combustível
+      tags: [Combustíveis]
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TipoCombustivelCreate'
+      responses:
+        '200':
+          description: Atualizado
+        '400':
+          description: Erro de validação
+    delete:
+      summary: Deleta combustível
+      tags: [Combustíveis]
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+      responses:
+        '204':
+          description: Deletado
+
+  /bombas:
+    get:
+      summary: Lista todas as bombas
+      tags: [Bombas]
+      responses:
+        '200':
+          description: Lista retornada
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Bomba'
+    post:
+      summary: Cria uma nova bomba
+      tags: [Bombas]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BombaCreate'
+      responses:
+        '201':
+          description: Criado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bomba'
+        '400':
+          description: Erro de validação
+
+  /bombas/{id}:
+    get:
+      summary: Busca bomba por ID
+      tags: [Bombas]
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bomba'
+        '404':
+          description: Não encontrado
+    put:
+      summary: Atualiza bomba
+      tags: [Bombas]
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BombaCreate'
+      responses:
+        '200':
+          description: Atualizado
+    delete:
+      summary: Deleta bomba
+      tags: [Bombas]
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+      responses:
+        '204':
+          description: Deletado
+
+  /abastecimentos:
+    get:
+      summary: Lista todos os abastecimentos
+      tags: [Abastecimentos]
+      responses:
+        '200':
+          description: Lista de abastecimentos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Abastecimento'
+
+    post:
+      summary: Registra um novo abastecimento
+      tags: [Abastecimentos]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AbastecimentoCreate'
+      responses:
+        '201':
+          description: Abastecimento registrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Abastecimento'
+        '400':
+          description: Erro na requisição
+
+  /abastecimentos/{id}:
+    get:
+      summary: Busca abastecimento por ID
+      tags: [Abastecimentos]
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Abastecimento'
+        '404':
+          description: Não encontrado
+    put:
+      summary: Atualiza abastecimento
+      tags: [Abastecimentos]
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AbastecimentoCreate'
+      responses:
+        '200':
+          description: Atualizado
+    delete:
+      summary: Remove abastecimento
+      tags: [Abastecimentos]
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+      responses:
+        '204':
+          description: Removido
+
+components:
+  schemas:
+    TipoCombustivel:
+      type: object
+      properties:
+        id:
+          type: integer
+        nome:
+          type: string
+        precoLitro:
+          type: number
+          format: double
+
+    TipoCombustivelCreate:
+      type: object
+      required: [nome, precoLitro]
+      properties:
+        nome:
+          type: string
+        precoLitro:
+          type: number
+          format: double
+
+    Bomba:
+      type: object
+      properties:
+        id:
+          type: integer
+        nome:
+          type: string
+        tipoCombustivelId:
+          type: integer
+
+    BombaCreate:
+      type: object
+      required: [nome, tipoCombustivelId]
+      properties:
+        nome:
+          type: string
+        tipoCombustivelId:
+          type: integer
+
+    Abastecimento:
+      type: object
+      properties:
+        id:
+          type: integer
+        bombaId:
+          type: integer
+        dataAbastecimento:
+          type: string
+          format: date-time
+        litros:
+          type: number
+          format: double
+        valorTotal:
+          type: number
+          format: double
+        precoLitroPraticado:
+          type: number
+          format: double
+
+    AbastecimentoCreate:
+      type: object
+      required: [bombaId, litros]
+      properties:
+        bombaId:
+          type: integer
+        litros:
+          type: number
+        precoLitroPraticado:
+          type: number
+          description: Caso não fornecido, será usado o preço padrão do combustível da bomba

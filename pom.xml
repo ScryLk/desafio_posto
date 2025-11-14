@@ -25,11 +25,30 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.33</version>
         </dependency>
+        
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet</artifactId>
+            <version>3.1.3</version>
+        </dependency>
 
-     </dependencies>
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+            <version>3.1.3</version>
+        </dependency>
 
-    
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-jackson</artifactId>
+            <version>3.1.3</version>
+        </dependency>
+
+    </dependencies>
+
+
     <build>
+        <finalName>ROOT</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -48,6 +67,6 @@
         </plugins>
     </build>
     <description>API REST para controle de combustíveis, bombas e abastecimentos.
-Projeto do desafio para vaga júnior.
-</description>
+        Projeto do desafio para vaga júnior.
+    </description>
 </project>
