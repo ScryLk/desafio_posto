@@ -1,0 +1,3 @@
+br/com/desafioposto/resources/JakartaEE10Resource.class
+br/com/desafioposto/JakartaRestConfiguration.class
+br/com/desafioposto/config/JaxRsConfig.class
