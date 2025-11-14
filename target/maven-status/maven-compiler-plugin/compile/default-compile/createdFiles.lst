@@ -2,12 +2,17 @@ br/com/desafioposto/service/AbastecimentoService.class
 br/com/desafioposto/resource/AbastecimentoResource.class
 br/com/desafioposto/dao/DatabaseConnection.class
 br/com/desafioposto/model/Abastecimento.class
+br/com/desafioposto/view/RegistrarAbastecimentoFrame.class
 br/com/desafioposto/dao/BombaDAO.class
 br/com/desafioposto/dao/AbastecimentoDAO.class
 br/com/desafioposto/model/TipoCombustivel.class
 br/com/desafioposto/resource/BombaResource.class
+br/com/desafioposto/view/GerenciarBombasFrame.class
+br/com/desafioposto/view/MenuPrincipalFrame.class
 br/com/desafioposto/service/BombaService.class
 br/com/desafioposto/model/Bomba.class
 br/com/desafioposto/service/TipoCombustivelService.class
 br/com/desafioposto/resource/TipoCombustivelResource.class
+br/com/desafioposto/view/ConsultarAbastecimentosFrame.class
 br/com/desafioposto/dao/TipoCombustivelDAO.class
+br/com/desafioposto/view/GerenciarCombustiveisFrame.class
