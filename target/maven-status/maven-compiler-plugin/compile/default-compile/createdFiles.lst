@@ -1,3 +1,6 @@
+br/com/desafioposto/dao/DatabaseConnection.class
+br/com/desafioposto/resource/TesteResource.class
+br/com/desafioposto/dao/TesteDAO.class
 br/com/desafioposto/resources/JakartaEE10Resource.class
 br/com/desafioposto/JakartaRestConfiguration.class
 br/com/desafioposto/config/JaxRsConfig.class
